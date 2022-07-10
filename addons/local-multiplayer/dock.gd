@@ -14,12 +14,17 @@ func saveToProjectSettings():
 	var af = readActionsFile()
 	var players = af.players
 	var actions = af.actions
+	var joypadCounter = 0
 	for playerId in players.size():
 		var playerDevice = players[playerId]
+		var playerJoypad
 		var isUsingJoypad = playerDevice != "mouseAndKeyboard"
+		if(isUsingJoypad):
+			playerJoypad = joypadCounter
+			joypadCounter += 1
 		for actionName in actions:
 			var action = actions[actionName]
-			createInputAction(playerId, isUsingJoypad, actionName, action)
+			createInputAction(playerId, playerJoypad, actionName, action)
 	ProjectSettings.save()
 
 # Reads and returns the actions.json file contents
@@ -37,19 +42,22 @@ func readActionsFile():
 		return json.get_data()
 
 # Creates an input action for a given playerId and actionName
-func createInputAction(playerId, isUsingJoypad, actionName, action):
+func createInputAction(playerId, playerJoypad, actionName, action):
 	var settingName = str("input/", actionName, "_", playerId)
 	var inputAction: Dictionary
-	inputAction.deadzone = action.deadzone || 0.5
+	inputAction.deadzone = action.deadzone if action.deadzone != null else 0.5
 	inputAction.events = []
 	for event in action.events:
 		var newEvent
+		var isJoypadEvent = event.type == "joypadMotion" || event.type == "joypadButton"
+		if ((playerJoypad == null && isJoypadEvent) 
+			|| (playerJoypad != null && !isJoypadEvent)): continue # Filter out irrelevant events based on player's device
 		if event.type == "mouseButton":
 			newEvent = InputEventMouseButton.new()
 			newEvent.set_button_index(event.value)
 		elif event.type == "key":
 			newEvent = InputEventKey.new()
-			newEvent.set_keycode(event.value)
+			newEvent.set_physical_keycode(event.value)
 		elif event.type == "joypadMotion":
 			newEvent = InputEventJoypadMotion.new()
 			newEvent.set_axis(event.axis)
@@ -57,9 +65,10 @@ func createInputAction(playerId, isUsingJoypad, actionName, action):
 		elif event.type == "joypadButton":
 			newEvent = InputEventJoypadButton.new()
 			newEvent.set_button_index(event.value)
-		newEvent.device = playerId
+		newEvent.device = playerJoypad || 0
 		inputAction.events.append(newEvent)
-	ProjectSettings.set_setting(settingName, inputAction);
+	
+	if(inputAction.events.size() > 0): ProjectSettings.set_setting(settingName, inputAction);
 
 func _enter_tree():
 	actionsFilePath = ProjectSettings.globalize_path(actionsFileResource);
