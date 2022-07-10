@@ -1,7 +1,7 @@
 {
   "players": ["mouseAndKeyboard", "joypad", "joypad", "joypad"],
   "actions": {
-    "moveLeft": {
+    "move_left": {
       "deadzone": 0.5,
       "events": [
         { "type": "key", "enum": "KEY_A", "value": 65 },
@@ -12,7 +12,7 @@
         }
       ]
     },
-    "moveRight": {
+    "move_right": {
       "deadzone": 0.5,
       "events": [
         { "type": "key", "enum": "KEY_D", "value": 68 },
@@ -23,7 +23,7 @@
         }
       ]
     },
-    "moveUp": {
+    "move_up": {
       "deadzone": 0.5,
       "events": [
         { "type": "key", "enum": "KEY_W", "value": 87 },
@@ -34,7 +34,7 @@
         }
       ]
     },
-    "moveDown": {
+    "move_down": {
       "deadzone": 0.5,
       "events": [
         { "type": "key", "enum": "KEY_S", "value": 83 },
@@ -45,10 +45,10 @@
         }
       ]
     },
-    "aimLeft": {
+    "aim_left": {
       "deadzone": 0.5,
       "events": [
-        { "type": "key", "enum": "KEY_LEFT", "value": 37 },
+        { "type": "key", "enum": "KEY_LEFT", "value": 16777231 },
         {
           "type": "joypadMotion",
           "axis": 2,
@@ -56,10 +56,10 @@
         }
       ]
     },
-    "aimRight": {
+    "aim_right": {
       "deadzone": 0.5,
       "events": [
-        { "type": "key", "enum": "KEY_RIGHT", "value": 39 },
+        { "type": "key", "enum": "KEY_RIGHT", "value": 16777233 },
         {
           "type": "joypadMotion",
           "axis": 2,
@@ -67,10 +67,10 @@
         }
       ]
     },
-    "aimUp": {
+    "aim_up": {
       "deadzone": 0.5,
       "events": [
-        { "type": "key", "enum": "KEY_UP", "value": 38 },
+        { "type": "key", "enum": "KEY_UP", "value": 16777232 },
         {
           "type": "joypadMotion",
           "axis": 3,
@@ -78,10 +78,10 @@
         }
       ]
     },
-    "aimDown": {
+    "aim_down": {
       "deadzone": 0.5,
       "events": [
-        { "type": "key", "enum": "KEY_DOWN", "value": 40 },
+        { "type": "key", "enum": "KEY_DOWN", "value": 16777234 },
         {
           "type": "joypadMotion",
           "axis": 3,
@@ -122,7 +122,7 @@
         }
       ]
     },
-    "leftTrigger": {
+    "left_trigger": {
       "deadzone": 0.5,
       "events": [
         {
@@ -132,7 +132,7 @@
         }
       ]
     },
-    "rightTrigger": {
+    "right_trigger": {
       "deadzone": 0.5,
       "events": [
         {
