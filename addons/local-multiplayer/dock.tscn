@@ -9,53 +9,17 @@ grow_vertical = 2
 script = ExtResource("1_jywrg")
 
 [node name="Sections" type="VBoxContainer" parent="."]
-offset_right = 300.0
-offset_bottom = 189.0
+offset_right = 301.0
+offset_bottom = 538.0
 grow_vertical = 2
 metadata/_edit_layout_mode = 1
 
-[node name="Settings" type="VBoxContainer" parent="Sections"]
-offset_right = 300.0
-offset_bottom = 72.0
-
-[node name="Settings" type="Label" parent="Sections/Settings"]
-offset_right = 300.0
-offset_bottom = 37.0
-theme_override_font_sizes/font_size = 24
-text = "Settings"
-
-[node name="NumPlayers" type="HBoxContainer" parent="Sections/Settings"]
-offset_top = 41.0
-offset_right = 300.0
-offset_bottom = 72.0
-
-[node name="Label" type="Label" parent="Sections/Settings/NumPlayers"]
-offset_top = 2.0
-offset_right = 145.0
-offset_bottom = 28.0
-text = "Number of players"
-
-[node name="SpinBox" type="SpinBox" parent="Sections/Settings/NumPlayers"]
-offset_left = 149.0
-offset_right = 232.0
-offset_bottom = 31.0
-min_value = 1.0
-max_value = 1000.0
-value = 1.0
-update_on_text_changed = true
-
-[node name="HSeparator" type="HSeparator" parent="Sections"]
-offset_top = 76.0
-offset_right = 300.0
-offset_bottom = 80.0
-
 [node name="Actions" type="VBoxContainer" parent="Sections"]
-offset_top = 84.0
-offset_right = 300.0
-offset_bottom = 189.0
+offset_right = 301.0
+offset_bottom = 105.0
 
 [node name="Actions" type="Label" parent="Sections/Actions"]
-offset_right = 300.0
+offset_right = 301.0
 offset_bottom = 37.0
 theme_override_font_sizes/font_size = 24
 text = "Actions"
@@ -63,29 +27,78 @@ text = "Actions"
 [node name="Open" type="Button" parent="Sections/Actions"]
 custom_minimum_size = Vector2(0, 64)
 offset_top = 41.0
-offset_right = 300.0
+offset_right = 301.0
 offset_bottom = 105.0
 text = "Open JSON file"
 
-[node name="HSeparator" type="HSeparator" parent="."]
-offset_top = 193.0
-offset_right = 300.0
-offset_bottom = 197.0
+[node name="HSeparator" type="HSeparator" parent="Sections"]
+offset_top = 109.0
+offset_right = 301.0
+offset_bottom = 113.0
 
-[node name="Menu" type="PanelContainer" parent="."]
-offset_top = 201.0
-offset_right = 300.0
-offset_bottom = 265.0
+[node name="Menu" type="PanelContainer" parent="Sections"]
+offset_top = 117.0
+offset_right = 301.0
+offset_bottom = 181.0
 grow_vertical = 0
 metadata/_edit_layout_mode = 1
 
-[node name="Save" type="Button" parent="Menu"]
+[node name="Save" type="Button" parent="Sections/Menu"]
 custom_minimum_size = Vector2(0, 64)
-offset_left = 32.0
-offset_right = 300.0
+offset_right = 301.0
 offset_bottom = 64.0
 size_flags_horizontal = 8
-text = "Save changes to Godot Input Map"
+text = "Save actions to Godot Project Settings"
+
+[node name="HSeparator2" type="HSeparator" parent="Sections"]
+offset_top = 185.0
+offset_right = 301.0
+offset_bottom = 189.0
+
+[node name="Help" type="VBoxContainer" parent="Sections"]
+offset_top = 193.0
+offset_right = 301.0
+offset_bottom = 416.0
+
+[node name="Help" type="Label" parent="Sections/Help"]
+offset_right = 301.0
+offset_bottom = 37.0
+theme_override_font_sizes/font_size = 24
+text = "Help"
+
+[node name="Instructions" type="Label" parent="Sections/Help"]
+offset_top = 41.0
+offset_right = 301.0
+offset_bottom = 223.0
+text = "1. Open JSON file
+2. Modify \"players\" array as desired (\"mouseAndKeyboard\" / \"joypad\")
+3. Modify \"actions\" dictionary to suit your game's controls
+4. Save actions to Godot's Project Settings"
+autowrap_mode = 2
+
+[node name="HSeparator3" type="HSeparator" parent="Sections"]
+offset_top = 420.0
+offset_right = 301.0
+offset_bottom = 424.0
+
+[node name="Issues" type="VBoxContainer" parent="Sections"]
+offset_top = 428.0
+offset_right = 301.0
+offset_bottom = 538.0
+
+[node name="Issues" type="Label" parent="Sections/Issues"]
+offset_right = 301.0
+offset_bottom = 37.0
+theme_override_font_sizes/font_size = 24
+text = "Known Issues"
+
+[node name="Description" type="RichTextLabel" parent="Sections/Issues"]
+offset_top = 41.0
+offset_right = 301.0
+offset_bottom = 110.0
+bbcode_enabled = true
+text = "[url=https://github.com/godotengine/godot/issues/25865]Project Settings window's Input map does not update when the InputMap is changed in code[/url]"
+fit_content_height = true
 
 [connection signal="pressed" from="Sections/Actions/Open" to="." method="onOpenActionsPressed"]
-[connection signal="pressed" from="Menu/Save" to="." method="onSavePressed"]
+[connection signal="pressed" from="Sections/Menu/Save" to="." method="onSavePressed"]

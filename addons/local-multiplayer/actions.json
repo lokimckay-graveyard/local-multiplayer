@@ -1,115 +1,146 @@
 {
   "players": ["mouseAndKeyboard", "joypad", "joypad", "joypad"],
   "actions": {
-    "moveLeft": [
-      { "type": "key", "enum": "KEY_A", "value": 65 },
-      {
-        "type": "joypadMotion",
-        "axis": 0,
-        "value": -1.0,
-        "deadzone": 0.5
-      }
-    ],
-    "moveRight": [
-      { "type": "key", "enum": "KEY_D", "value": 68 },
-      {
-        "type": "joypadMotion",
-        "axis": 0,
-        "value": 1.0,
-        "deadzone": 0.5
-      }
-    ],
-    "moveUp": [
-      { "type": "key", "enum": "KEY_W", "value": 87 },
-      {
-        "type": "joypadMotion",
-        "axis": 1,
-        "value": -1.0,
-        "deadzone": 0.5
-      }
-    ],
-    "moveDown": [
-      { "type": "key", "enum": "KEY_S", "value": 83 },
-      {
-        "type": "joypadMotion",
-        "axis": 1,
-        "value": 1.0,
-        "deadzone": 0.5
-      }
-    ],
-    "aimLeft": [
-      { "type": "key", "enum": "KEY_LEFT", "value": 37 },
-      {
-        "type": "joypadMotion",
-        "axis": 2,
-        "value": -1.0,
-        "deadzone": 0.5
-      }
-    ],
-    "aimRight": [
-      { "type": "key", "enum": "KEY_RIGHT", "value": 39 },
-      {
-        "type": "joypadMotion",
-        "axis": 2,
-        "value": 1.0,
-        "deadzone": 0.5
-      }
-    ],
-    "aimUp": [
-      { "type": "key", "enum": "KEY_UP", "value": 38 },
-      {
-        "type": "joypadMotion",
-        "axis": 3,
-        "value": -1.0,
-        "deadzone": 0.5
-      }
-    ],
-    "aimDown": [
-      { "type": "key", "enum": "KEY_DOWN", "value": 40 },
-      {
-        "type": "joypadMotion",
-        "axis": 3,
-        "value": 1.0,
-        "deadzone": 0.5
-      }
-    ],
-    "shoot": [
-      { "type": "mouseButton", "enum": "BUTTON_LEFT", "value": 1 },
-      {
-        "type": "joypadButton",
-        "enum": "JOY_BUTTON_7",
-        "value": 7
-      }
-    ],
-    "jump": [
-      { "type": "key", "enum": "KEY_SPACE", "value": 32 },
-      {
-        "type": "joypadButton",
-        "enum": "JOY_BUTTON_0",
-        "value": 0
-      }
-    ],
-    "ability": [
-      { "type": "key", "enum": "KEY_SHIFT", "value": 16777237 },
-      {
-        "type": "joypadButton",
-        "enum": "JOY_BUTTON_1",
-        "value": 1
-      }
-    ],
-    "leftTrigger": [
-      {
-        "type": "joypadButton",
-        "enum": "JOY_BUTTON_4",
-        "value": 4
-      }
-    ],
-    "rightTrigger": [
-      {
-        "type": "joypadButton",
-        "enum": "JOY_BUTTON_5",
-        "value": 5
-      }
-    ]
+    "moveLeft": {
+      "deadzone": 0.5,
+      "events": [
+        { "type": "key", "enum": "KEY_A", "value": 65 },
+        {
+          "type": "joypadMotion",
+          "axis": 0,
+          "value": -1.0
+        }
+      ]
+    },
+    "moveRight": {
+      "deadzone": 0.5,
+      "events": [
+        { "type": "key", "enum": "KEY_D", "value": 68 },
+        {
+          "type": "joypadMotion",
+          "axis": 0,
+          "value": 1.0
+        }
+      ]
+    },
+    "moveUp": {
+      "deadzone": 0.5,
+      "events": [
+        { "type": "key", "enum": "KEY_W", "value": 87 },
+        {
+          "type": "joypadMotion",
+          "axis": 1,
+          "value": -1.0
+        }
+      ]
+    },
+    "moveDown": {
+      "deadzone": 0.5,
+      "events": [
+        { "type": "key", "enum": "KEY_S", "value": 83 },
+        {
+          "type": "joypadMotion",
+          "axis": 1,
+          "value": 1.0
+        }
+      ]
+    },
+    "aimLeft": {
+      "deadzone": 0.5,
+      "events": [
+        { "type": "key", "enum": "KEY_LEFT", "value": 37 },
+        {
+          "type": "joypadMotion",
+          "axis": 2,
+          "value": -1.0
+        }
+      ]
+    },
+    "aimRight": {
+      "deadzone": 0.5,
+      "events": [
+        { "type": "key", "enum": "KEY_RIGHT", "value": 39 },
+        {
+          "type": "joypadMotion",
+          "axis": 2,
+          "value": 1.0
+        }
+      ]
+    },
+    "aimUp": {
+      "deadzone": 0.5,
+      "events": [
+        { "type": "key", "enum": "KEY_UP", "value": 38 },
+        {
+          "type": "joypadMotion",
+          "axis": 3,
+          "value": -1.0
+        }
+      ]
+    },
+    "aimDown": {
+      "deadzone": 0.5,
+      "events": [
+        { "type": "key", "enum": "KEY_DOWN", "value": 40 },
+        {
+          "type": "joypadMotion",
+          "axis": 3,
+          "value": 1.0
+        }
+      ]
+    },
+    "shoot": {
+      "deadzone": 0.5,
+      "events": [
+        { "type": "mouseButton", "enum": "BUTTON_LEFT", "value": 1 },
+        {
+          "type": "joypadButton",
+          "enum": "JOY_BUTTON_7",
+          "value": 7
+        }
+      ]
+    },
+    "jump": {
+      "deadzone": 0.5,
+      "events": [
+        { "type": "key", "enum": "KEY_SPACE", "value": 32 },
+        {
+          "type": "joypadButton",
+          "enum": "JOY_BUTTON_0",
+          "value": 0
+        }
+      ]
+    },
+    "ability": {
+      "deadzone": 0.5,
+      "events": [
+        { "type": "key", "enum": "KEY_SHIFT", "value": 16777237 },
+        {
+          "type": "joypadButton",
+          "enum": "JOY_BUTTON_1",
+          "value": 1
+        }
+      ]
+    },
+    "leftTrigger": {
+      "deadzone": 0.5,
+      "events": [
+        {
+          "type": "joypadButton",
+          "enum": "JOY_BUTTON_4",
+          "value": 4
+        }
+      ]
+    },
+    "rightTrigger": {
+      "deadzone": 0.5,
+      "events": [
+        {
+          "type": "joypadButton",
+          "enum": "JOY_BUTTON_5",
+          "value": 5
+        }
+      ]
+    }
   }
 }
