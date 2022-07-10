@@ -1,6 +1,6 @@
 # Local Multiplayer
 
-Godot plugin that makes local multiplayer controls management easier
+Godot plugin that facilitates local multiplayer controls management
 
 ## Usage
 
